@@ -81,8 +81,8 @@ local terminal          = "st"
 
 -- awesome variables
 awful.util.terminal = terminal
---awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
-awful.util.tagnames = { " 1 ", " 2 " }
+awful.util.tagnames = {  " ",  " ", " ", " "  }
+--awful.util.tagnames = { " 1 ", " 2 ", " 3 " }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,
