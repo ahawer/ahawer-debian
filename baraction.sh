@@ -4,7 +4,7 @@
 ## DISK
 hdd() {
   hdd="$(df -h | awk ' NR==4  { print  $3,   $5 } ')"
-  echo "HDD: $hdd"
+  echo "SSD: $hdd"
 }
 ## RAM
 mem() {
@@ -37,7 +37,7 @@ SLEEP_SEC=3
 ## WEATHER
 weather() {
 	wthr="$(sed 24q ~/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}' | sed 's/"//g')"
-	echo "VEJR: $wthr"
+	echo "$wthr"
 }
 
 ## TEMP

@@ -4,14 +4,14 @@ nitrogen --restore &
 compton &
 lxpolkit &
 # pnmixer &
-volumeicon &
+#volumeicon &
 #pasystray &
-caffeine-indicator &
-pcmanfm &
-st &
-geary &
-firefox-esr &
-xscreensaver &
+#caffeine-indicator &
+#pcmanfm &
+#st &
+#geary &
+#firefox-esr &
+#xscreensaver &
 #zoom &
 exec slstatus &
 #start dwm after loop
