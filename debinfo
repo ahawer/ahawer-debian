@@ -1,27 +1,27 @@
-#!/usr/bin/env 
-user=$USER@
+#!/bin/sh 
+user=$USER
 OS="$(lsb_release -sirc)"
 #Desktop="${XDG_CURRENT_DESKTOP}"
 Kernel="$(uname -sr)"
 Uptime="$(uptime -p | sed 's/up //')"
 Packages="$(dpkg -l | grep -c ^i)"
 Shell="$(basename "$SHELL")"
-#CPU="$(lscpu | grep Model\ name | sed 's/name:\ //' | sed "s/([^)]*)/()/g" | sed 's/[)(]//g')" 
+#CPU="$(lscpu | grep Modelnavn: | sed "s/([^)]*)/()/g" | sed 's/[)(]//g')" 
 #GPU="$(glxinfo -B | grep Device: | sed "s/([^)]*)/()/g" | sed 's/[)(]//g')"
 RAM="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
-#IP="$(hostname -I | awk '{print $1}')"
-echo '          _,met$$$$$gg.        '            #  $user$(hostname)
-echo '       ,g$$$$$$$$$$$$$$$P.     '            OS: $OS
+IP="$(hostname -I | awk '{print $1}')"
+echo '          _,met$$$$$gg.        '            
+echo '       ,g$$$$$$$$$$$$$$$P.     '            
 echo '     ,g$$P""       """Y$$.".   '            Kernel: $Kernel			 
 echo '    ,$$P"              `$$$."  '            Uptime: $Uptime
 echo '   ,$$P       ,ggs.     `$$b:  '            RAM: $RAM
 echo '  `d$$"     ,$P""   .    $$$   '            Packages: $Packages
 echo '   $$P      d$"     ,    $$P   '            Shell: $Shell
-echo '   $$:      $$.   -    ,d$$"   '           # CPU: $CPU
-echo '   $$\;      Y$b._   _,d$P     '            
-echo '   Y$$.    `.`"Y$$$$P""        '                  
+echo '   $$:      $$.   -    ,d$$"   '            IP: $IP
+echo '   $$\;      Y$b._   _,d$P     '            user: $user
+echo '   Y$$.    `.`"Y$$$$P""        '            OS: $OS      
 echo '   `$$b      "-.__             '            
-echo '    `Y$$                       '
+echo '    `Y$$                       '            
 echo '     `Y$$.                     '
 echo '       `$$b.                   '
 echo '         `Y$$b.                '
