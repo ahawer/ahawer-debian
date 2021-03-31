@@ -10,6 +10,7 @@ Shell="$(basename "$SHELL")"
 #GPU="$(glxinfo -B | grep Device: | sed "s/([^)]*)/()/g" | sed 's/[)(]//g')"
 RAM="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
 IP="$(hostname -I | awk '{print $1}')"
+##
 echo '          _,met$$$$$gg.        '            
 echo '       ,g$$$$$$$$$$$$$$$P.     '            
 echo '     ,g$$P""       """Y$$.".   '            Kernel: $Kernel			 
