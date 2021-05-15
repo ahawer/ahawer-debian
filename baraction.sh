@@ -22,10 +22,10 @@ cpu() {
   echo "CPU: $cpu%"
 }
 ## UPGRADES
-#upgrades() {
-#        upgrades="$(aptitude search '~U' | wc -l)"
-#	echo " UPG: $upgrades "
-#}
+upgrades() {
+	upgrades="$(apt list --upgradable | wc -l)"    # "$(aptitude search '~U' | wc -l)"
+	echo " UPG: $upgrades "
+}
 
 ## VOLUME
 vol() {
@@ -55,7 +55,7 @@ loops forever outputting a line every SLEEP_SEC secs
 # So I would love to add more functions to this script but it makes the 
 # echo output too long to display correctly.
 while :; do
-	echo "     $(cpu)  |  $(mem)  |  $(hdd)  |  $(vol)  |  $(weather) $(temp)  |   "
+	echo "     $(cpu)  |  $(mem)  |  $(hdd)  |  $(vol)  |  $(weather) $(temp)  |  $(upgrades)  |  "
 
 	sleep $SLEEP_SEC
 done
