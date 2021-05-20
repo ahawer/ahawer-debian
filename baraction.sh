@@ -28,10 +28,10 @@ cpu() {
 #  echo -e "$song"
 #}
 ## UPGRADES
-upgrades() {
-	upgrades="$(apt list --upgradable | wc -l)"    # "$(aptitude search '~U' | wc -l)"
-	echo " UPG: $upgrades "
-}
+#upgrades() {
+#	upgrades="$(apt list --upgradable | wc -l)"    # "$(aptitude search '~U' | wc -l)"
+#	echo " UPG: $upgrades "
+#}
 ## NET SPEED
 rtx() {
     _interface=$(ip route | grep '^default' | awk '{print $5}')
@@ -104,7 +104,7 @@ temp() {
 	echo " $tmp"
 }
 
-SLEEP_SEC=2
+SLEEP_SEC=0.6
 
 #loops forever outputting a line every SLEEP_SEC secs
 
@@ -113,7 +113,7 @@ SLEEP_SEC=2
 # So I would love to add more functions to this script but it makes the 
 # echo output too long to display correctly.
 while :; do
-	echo "   |  $(cpu)  |  $(mem)  |  $(hdd)  |  $(network)   $(netspeed)  |  $(upgrades)  |  $(weather) $(temp)  |  $(vol)  | "
+	echo "   |  $(cpu)  |  $(mem)  |  $(hdd)  |  $(network)   $(netspeed)  |  $(weather) $(temp)  |  $(vol)  | "
 
 ## netspeed
             Rx1=$(rtx |awk '{sum+=$1} END {print sum}')
