@@ -1,0 +1,18 @@
+--- config.def.h
++++ config.def.h
+@@ -6,6 +6,7 @@ static char *styledir       = "~/.surf/styles/";
+ static char *certdir        = "~/.surf/certificates/";
+ static char *cachedir       = "~/.surf/cache/";
+ static char *cookiefile     = "~/.surf/cookies.txt";
++static char *searchurl      = "duckduckgo.com/?q=%s";
+ 
+ /* Webkit default features */
+ /* Highest priority value will be used.
+@@ -141,6 +150,7 @@ static Key keys[] = {
+ 	{ MODKEY,                GDK_KEY_g,      spawn,      SETPROP("_SURF_URI", "_SURF_GO", PROMPT_GO) },
+ 	{ MODKEY,                GDK_KEY_f,      spawn,      SETPROP("_SURF_FIND", "_SURF_FIND", PROMPT_FIND) },
+ 	{ MODKEY,                GDK_KEY_slash,  spawn,      SETPROP("_SURF_FIND", "_SURF_FIND", PROMPT_FIND) },
++	{ MODKEY,                GDK_KEY_s,      spawn,      SEARCH() },
+ 
+ 	{ 0,                     GDK_KEY_Escape, stop,       { 0 } },
+ 	{ MODKEY,                GDK_KEY_c,      stop,       { 0 } },
