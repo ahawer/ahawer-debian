@@ -104,7 +104,7 @@ temp() {
 	echo " $tmp"
 }
 
-SLEEP_SEC=0.6
+SLEEP_SEC=1
 
 #loops forever outputting a line every SLEEP_SEC secs
 
