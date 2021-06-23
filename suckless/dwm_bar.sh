@@ -1,7 +1,7 @@
 #!/bin/bash
 # bar for DWM status bar
 dte(){
-        dte="$(date +"%a, %d. %B  %R")"
+        dte="$(date +"%A %d. %B,  %R")"
         echo "$dte"
 }
 
@@ -24,7 +24,7 @@ cpu() {
   read cpu a b c idle rest < /proc/stat
   total=$((a+b+c+idle))
   cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-  echo "  $cpu %"
+  echo "  $cpu%"
 }
 ## MUSIC
 #mpd(){
@@ -110,7 +110,7 @@ temp() {
 
 ## STATUS
 stat() {
-	echo "| $(cpu) | $(mem) | $(hdd) | $(network)  $(netspeed) | $(weather)$(temp) | $(vol) | $(dte) |"
+	echo "|  $(cpu) |  $(mem) |  $(hdd) |  $(network)  $(netspeed) |  $(weather)$(temp) |  $(vol) |  $(dte)  |"
 }
 
 SLEEP_SEC=1
