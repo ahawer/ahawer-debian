@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 8;        /* gaps between windows */
+static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -10,14 +10,15 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=9" };
-static const char dmenufont[]       = "monospace:size=9";
+static const char *fonts[]          = { "Luxi Sans:Bold:size=11" };
+static const char dmenufont[]       = "Luxi Sans:Bold:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#353e42";
 static const char col_cyan[]        = "#005577";
+static const char col_gul[]         = "#ffffa0";
 static const char col_red1[]        = "#af0000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -30,8 +31,8 @@ static const char *tags[] = { "", "", "", "", "","", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
+	 	WM_CLASS(STRING) = instance, class
+	 	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
@@ -46,7 +47,7 @@ static const Rule rules[] = {
 	{ "qutebrowser",  NULL,   NULL,       1 << 3,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       1 << 0,       0,           -1 },*/
 /*	{ "kitty",       NULL,    NULL,       1 << 0,       0,           -1 },*/
-};
+}; 
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -92,7 +93,7 @@ static const char *screenshot[] = { "scrot", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("st -e fish") },     /* {.v = termcmd } },*/
 	{ MODKEY|ShiftMask,		XK_b,	   spawn, 	   {.v = web } },
 	{ MODKEY|ShiftMask,		XK_i,	   spawn, 	   {.v = web2 } },
 	/*{ MODKEY|ShiftMask,		XK_s,	   spawn, 	   {.v = web3 } },*/
@@ -103,10 +104,12 @@ static Key keys[] = {
     	{ MODKEY|ShiftMask,		XK_f,	   spawn,	   {.v = files } },
 	{ MODKEY|Mod1Mask,		XK_x,	   spawn,	   {.v = lock } },
 	{ MODKEY,        		XK_s,      spawn,	   {.v = screenshot } },
+	{ MODKEY|ControlMask|ShiftMask,	XK_s,      spawn,	   SHCMD("scrot -s") },
 	{ MODKEY,	        	XK_r,	   spawn,	   {.v = find } },
 	{ MODKEY|ShiftMask,		XK_o,	   spawn,	   {.v = office } },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = lyd } },
-	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("tabbed surf -pe") },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("tabbed surf -e") },
+	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   SHCMD("tabbed vimb -e") },
 	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("systemctl suspend") },
 	{ MODKEY|ControlMask|Mod1Mask,	XK_r,	   spawn,	   SHCMD("systemctl reboot") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

@@ -1,2 +1,0 @@
-# suckless
-My suckless files
