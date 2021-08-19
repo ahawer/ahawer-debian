@@ -1,13 +1,25 @@
 #!/bin/sh
-xrandr --output HDMI-1 --off --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 nitrogen --restore &
-compton &
+compton --backend glx --vsync opengl-swc &
 lxpolkit &
 # pnmixer &
-pasystray &
+volumeicon &
+#pasystray &
+blueman-applet &
 caffeine-indicator &
-exec slstatus &
-#start dwm after loop
+#pcmanfm &
+#st -e fish &
+dunst &
+#tabbed surf -e &
+#qutebrowser &
+#st -e ranger &
+#kitty &
+#geary &
+#firefox-esr &
+#trayer --edge top --widthtype request --height 20 &
+xscreensaver -no-splash &
+#zoom &
+/home/andreas/dwm_bar.sh &
 exec /usr/local/bin/dwm > /dev/null
 
 
