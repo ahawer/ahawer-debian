@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+                <separator/>
+                <menu execute="/usr/bin/openbox-menu lxde-applications.menu" id="desktop-app-menu" label="Alle Programmer"/>
+                <separator/>
+		<item label="Terminal emulator">
+			<action name="Execute">
+				<execute>kitty</execute>
+			</action>
+		</item>
+		<item label="Fil Manager">
+			<action name="Execute">
+				<execute>pcmanfm</execute>
+			</action>
+		</item>
+		<item label="E-mail">
+			<action name="Execute">
+				<execute>claws-mail</execute>
+			</action>
+		</item>
+		<item label="Internet">
+			<action name="Execute">
+				<execute>qutebrowser</execute>
+			</action>
+		</item>
+		<separator/>
+		<item label="Kør Program">
+			<action name="Execute">
+				<execute>synapse</execute>
+			</action>
+		</item>
+		<separator/>
+		<item label="Openbox Indstillinger">
+			<action name="Execute">
+				<execute>obconf</execute>
+			</action>
+		</item>
+		<item label="Reconfigure Openbox">
+			<action name="Reconfigure"/>
+		</item>
+		<item label="Restart Openbox">
+			<action name="Restart"/>
+		</item>
+		<separator/>
+		<item label="Log ud">
+			<action name="Exit"/>
+		</item>
+                <separator/>
+	</menu>
+</openbox_menu>
