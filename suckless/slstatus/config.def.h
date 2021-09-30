@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 2000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -67,9 +67,11 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ cpu_perc,	"|  %s%%  | ",  NULL  },
 	{ ram_used,	" %s  | ",  NULL  },
-	{ netspeed_rx,	">%sB/s ", "enp2s0" },
-        { netspeed_tx,	"<%sB/s | ", "enp2s0" },
+	{ netspeed_rx,	">%sB/s ", "eno1" },
+        { netspeed_tx,	"<%sB/s | ", "eno1" },
+	{ run_command,  "  %2s    ", "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" },
+        { run_command,  "  %2s | ", "sed 24q /home/andreas/.config/weather.txt | grep temp_C | awk '{print $2}' | sed 's/,/ C/g'" },
 	{ disk_free,	" %s  | ",  "/" },
 	{ run_command,	" %2s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },	
-	{ datetime,	"%s",	"%a, %b %d,  %R" },  
+	{ datetime,	"%s",	"%a, %b %d,  %R | " },  
 };		

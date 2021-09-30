@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int gappx     = 1;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -10,11 +10,11 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Luxi Sans:Bold:size=11" };
+static const char *fonts[]          = { "Luxi Sans:Bold:size=11", "Font Awesome:size=12"};
 static const char dmenufont[]       = "Luxi Sans:Bold:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#75ccf5";            /*"#bbbbbb";*/
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#353e42";
 static const char col_cyan[]        = "#005577";
@@ -36,15 +36,17 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "pavucontrol", NULL,	  NULL,	      0,	    1,		 -1 },
-	{ "grsync",   NULL,	  NULL,	      0,	    1,		 -1 },
-	{ "galculator", NULL,	  NULL,	      0,	    1,		 -1 },	
-	{ "zoom",  NULL,          NULL,       1 << 4,       1,           -1 }, 
-	{ "Geary",   NULL,        NULL,       1 << 2,       0,           -1 },
+/*	{ "Firefox",  NULL,       NULL,       1 << 3,       0,           -1 },*/
+	{ "Pavucontrol", NULL,	  NULL,	      0,	    1,		 -1 },
+	{ "Grsync",   NULL,	  NULL,	      0,	    1,		 -1 },
+	{ "Galculator", NULL,	  NULL,	      0,	    1,		 -1 },	
+	{ "Zoom",  NULL,          NULL,       0,            1,           -1 },
+	{ "zoom",  NULL,          NULL,       0,            1,           -1 },
+	{ "Wine",  NULL,          NULL,       0,            1,           -1 },
+/*	{ "Claws-mail",   NULL,        NULL,       1 << 2,       0,           -1 },
 	{ "Pcmanfm",  NULL,       NULL,       1 << 1,       0,           -1 },	
 	{ "st -e ranger",  NULL,       NULL,       1 << 1,       0,           -1 },	
-	{ "qutebrowser",  NULL,   NULL,       1 << 3,       0,           -1 },
+	{ "qutebrowser",  NULL,   NULL,       1 << 3,       0,           -1 },*/
 /*	{ "st",       NULL,       NULL,       1 << 0,       0,           -1 },*/
 /*	{ "kitty",       NULL,    NULL,       1 << 0,       0,           -1 },*/
 }; 
@@ -52,7 +54,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -77,7 +79,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_red1, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *web[] = { "firefox-esr", NULL };
-static const char *email[] = { "geary", NULL };
+static const char *email[] = { "claws-mail", NULL };
 static const char *xeditor[] = { "geany", NULL };
 static const char *metting[] = { "zoom", NULL };
 static const char *wall[] = { "nitrogen", NULL };
@@ -85,9 +87,9 @@ static const char *files[] = { "pcmanfm", NULL };
 static const char *find[] = { "synapse", NULL };
 static const char *office[] = { "libreoffice", NULL };
 static const char *lyd[] = { "pavucontrol", NULL };
-static const char *lock[] = { "lxlock", NULL };
+static const char *lock[] = { "slock", NULL };
 static const char *web2[] = { "qutebrowser", NULL };
-/*static const char *web3[] = { "surf-open.sh", NULL };*/
+static const char *logout[] = {"lxsession-logout", NULL };
 static const char *screenshot[] = { "scrot", NULL };
 
 static Key keys[] = {
@@ -96,7 +98,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("st -e fish") },     /* {.v = termcmd } },*/
 	{ MODKEY|ShiftMask,		XK_b,	   spawn, 	   {.v = web } },
 	{ MODKEY|ShiftMask,		XK_i,	   spawn, 	   {.v = web2 } },
-	/*{ MODKEY|ShiftMask,		XK_s,	   spawn, 	   {.v = web3 } },*/
+	{ MODKEY|ShiftMask,		XK_l,	   spawn, 	   {.v = logout } },
 	{ MODKEY|ShiftMask,		XK_e,	   spawn,	   {.v = email } },
 	{ MODKEY|ShiftMask,		XK_g,	   spawn,	   {.v = xeditor } },
 	{ MODKEY|ShiftMask,		XK_z,      spawn,	   {.v = metting } },
@@ -108,8 +110,8 @@ static Key keys[] = {
 	{ MODKEY,	        	XK_r,	   spawn,	   {.v = find } },
 	{ MODKEY|ShiftMask,		XK_o,	   spawn,	   {.v = office } },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = lyd } },
-	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("tabbed surf -e") },
-	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   SHCMD("tabbed vimb -e") },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("tabbed -c surf -e") },
+/*	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   SHCMD("tabbed vimb -e") },*/
 	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("systemctl suspend") },
 	{ MODKEY|ControlMask|Mod1Mask,	XK_r,	   spawn,	   SHCMD("systemctl reboot") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

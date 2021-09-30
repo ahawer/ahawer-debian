@@ -33,11 +33,10 @@ cpu() {
 #  echo -e "$song"
 #}
 ## UPGRADES
-upgrades() {
-#	upgrades="$(sed 2q ~/.config/upgrades.txt | grep value | awk '{print $2}' | sed 's/ F/')"
-	upgrades="$(cat ~/.config/upgrades.txt)"
-	echo " UPG: $upgrades "
-}
+#upgrades() {
+#	upgrades="$(apt list --upgradable | wc -l)"    # "$(aptitude search '~U' | wc -l)"
+#	echo " UPG: $upgrades "
+#}
 ## NET SPEED
 rtx() {
     _interface=$(ip route | grep '^default' | awk '{print $5}')
@@ -64,8 +63,8 @@ netspeed() {
         TM=$((Txps/1024))
         Tm=$((Txps%1024))
 
-        [[ $Rm -ge 10 ]] && Rm=".$(echo $Rm | cut -c1-1)" || Rm=""
-        [[ $Tm -ge 10 ]] && Tm=".$(echo $Tm | cut -c1-1)" || Tm=""
+        [[ $Rm -ge 100 ]] && Rm=".$(echo $Rm | cut -c1-1)" || Rm=""
+        [[ $Tm -ge 100 ]] && Tm=".$(echo $Tm | cut -c1-1)" || Tm=""
 
         [[ -n $(ip route | grep '^default' | awk '{print $5}') ]] &&
         if [[ $RM -ge 1 ]]; then
@@ -111,7 +110,7 @@ temp() {
 
 ## STATUS
 stat() {
-	echo "|  $(cpu) |  $(mem) |  $(hdd) |  $(network)  $(netspeed) |  $(weather)$(temp)  |  $(upgrades)  |  $(vol)  |  $(dte)  |"
+	echo "|  $(cpu) |  $(mem) |  $(hdd) |  $(network)  $(netspeed) |  $(weather)$(temp) |  $(vol) |  $(dte)  |"
 }
 
 SLEEP_SEC=1
@@ -129,7 +128,6 @@ while true; do
 ## netspeed
             Rx1=$(rtx |awk '{sum+=$1} END {print sum}')
             Tx1=$(rtx |awk '{sum+=$2} END {print sum}')
-
 
     	    sleep $SLEEP_SEC
 done
