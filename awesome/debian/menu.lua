@@ -15,29 +15,27 @@ Debian_menu["Debian_Programmer_Fremvisere"] = {
 	{"Xditview","xditview"},
 }
 Debian_menu["Debian_Programmer_Grafik"] = {
+	{"dotty","/usr/bin/dotty"},
+	{"lefty","/usr/bin/lefty"},
 	{"X Window Snapshot","xwd | xwud"},
 }
 Debian_menu["Debian_Programmer_Kommandoskaller"] = {
 	{"Bash", "x-terminal-emulator -e ".."/bin/bash --login"},
 	{"Dash", "x-terminal-emulator -e ".."/bin/dash -i"},
+	{"fish", "x-terminal-emulator -e ".."/usr/bin/fish"},
 	{"Sh", "x-terminal-emulator -e ".."/bin/sh --login"},
 }
-Debian_menu["Debian_Programmer_Netværk_Filoverførsel"] = {
-	{"Deluge BitTorrent Client","/usr/bin/deluge","/usr/share/pixmaps/deluge.xpm"},
-}
 Debian_menu["Debian_Programmer_Netværk_Internetbrowsere"] = {
+	{"Dillo","/usr/bin/dillo","/usr/share/pixmaps/dillo.xpm"},
 	{"Qutebrowser","qutebrowser","/usr/share/pixmaps/qutebrowser.xpm"},
+	{"w3m", "x-terminal-emulator -e ".."/usr/bin/w3m /usr/share/doc/w3m/MANUAL.html"},
 }
 Debian_menu["Debian_Programmer_Netværk_Kommunikation"] = {
 	{"Xbiff","xbiff"},
 }
 Debian_menu["Debian_Programmer_Netværk"] = {
-	{ "Filoverførsel", Debian_menu["Debian_Programmer_Netværk_Filoverførsel"] },
 	{ "Internetbrowsere", Debian_menu["Debian_Programmer_Netværk_Internetbrowsere"] },
 	{ "Kommunikation", Debian_menu["Debian_Programmer_Netværk_Kommunikation"] },
-}
-Debian_menu["Debian_Programmer_Programmering"] = {
-	{"Tclsh8.6", "x-terminal-emulator -e ".."/usr/bin/tclsh8.6"},
 }
 Debian_menu["Debian_Programmer_System_Administration"] = {
 	{"Debian Task selector", "x-terminal-emulator -e ".."su-to-root -c tasksel"},
@@ -72,7 +70,6 @@ Debian_menu["Debian_Programmer_Tekst"] = {
 	{"Fortune","sh -c 'while /usr/games/fortune | col -x | xmessage -center -buttons OK:1,Another:0 -default OK -file - ; do :; done'"},
 	{"hspell-gui","/usr/bin/hspell-gui"},
 	{"hspell-gui (Hebrew UI)","/usr/bin/hspell-gui-heb"},
-	{"Khmer Converter","/usr/bin/khmerconverter","/usr/share/pixmaps/khmerconverter.xpm"},
 }
 Debian_menu["Debian_Programmer_Tekstredigering"] = {
 	{"Xedit","xedit"},
@@ -100,7 +97,6 @@ Debian_menu["Debian_Programmer"] = {
 	{ "Grafik", Debian_menu["Debian_Programmer_Grafik"] },
 	{ "Kommandoskaller", Debian_menu["Debian_Programmer_Kommandoskaller"] },
 	{ "Netværk", Debian_menu["Debian_Programmer_Netværk"] },
-	{ "Programmering", Debian_menu["Debian_Programmer_Programmering"] },
 	{ "System", Debian_menu["Debian_Programmer_System"] },
 	{ "Tekst", Debian_menu["Debian_Programmer_Tekst"] },
 	{ "Tekstredigering", Debian_menu["Debian_Programmer_Tekstredigering"] },
@@ -137,6 +133,7 @@ Debian_menu["Debian_Spil"] = {
 }
 Debian_menu["Debian_Vindueshåndteringer"] = {
 	{"awesome",function () awesome.exec("/usr/bin/awesome") end,"/usr/share/pixmaps/awesome.xpm"},
+	{"Xmonad",function () awesome.exec("/usr/bin/xmonad") end},
 }
 Debian_menu["Debian"] = {
 	{ "Hjælp", Debian_menu["Debian_Hjælp"] },
