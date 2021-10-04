@@ -4,6 +4,8 @@ static const Block blocks[] = {
 
 	{"| ",   "~/ahawer-debian/dwmblocks/scripts/cpu", 	2,		0},	
        
+	{"",  "~/ahawer-debian/dwmblocks/scripts/cputemp",	3,		0},
+	
 	{"",  "~/ahawer-debian/dwmblocks/scripts/memory",	10,		0},
 
 	{"",   "~/ahawer-debian/dwmblocks/scripts/disk", 	360,		0},
