@@ -1,7 +1,7 @@
 tint2 &
 compton --backend glx --vsync opengl-swc &
-volumeicon &
+#volumeicon &
 nitrogen --restore &
 lxpolkit &
-caffeine-indicator &
-xscreensaver -no-splash &
+#caffeine-indicator &
+#xscreensaver -no-splash &
