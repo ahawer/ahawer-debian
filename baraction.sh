@@ -4,7 +4,11 @@
 ## DISK
 hdd() {
   hdd="$(df -h | awk ' NR==4  { print  $3,   $5 } ')"
-  echo "SSD: $hdd"
+  echo "/   $hdd"
+}
+hdd1() {
+  hdd1="$(df -h | awk ' NR==7  { print  $3,   $5 } ')"
+  echo "~   $hdd1"
 }
 ## RAM
 mem() {
@@ -19,7 +23,14 @@ cpu() {
   read cpu a b c idle rest < /proc/stat
   total=$((a+b+c+idle))
   cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-  echo "CPU: $cpu%"
+  echo " CPU: $cpu%"
+}
+
+## CPU Temp
+
+CPUTEMP() {
+  CPUTEMP="$(sensors | grep Tctl | awk '{print $2" "$3" "$4" "$5}' | sed 's/"//g')"
+  echo "$CPUTEMP"
 }
 ## MUSIC
 #mpd(){
@@ -108,10 +119,15 @@ network(){
     ping -c1 -s1 8.8.8.8 >/dev/null 2>&1 && echo "Net ON" || echo "Net OFF"
 }
 ## VOLUME
+##vol() {
+#    vol=`amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }' | sed 's/on://g'`
+#    echo "VOL: $vol"
+#}
 vol() {
-    vol=`amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }' | sed 's/on://g'`
-    echo "VOL: $vol"
+	vol="$(amixer -D pulse get Master | awk -F'[][]' 'END{ print $4": "$2 }')"
+	echo " VOL  $vol "
 }
+
 
 ## WEATHER
 weather() {
@@ -135,7 +151,7 @@ SLEEP_SEC=2
 # echo output too long to display correctly.
 while :; do
 #	echo "   |  $(cpu)  |  $(mem)  |  $(hdd)  |  $(network)   $(netspeed)  |  $(weather) $(temp)  |  $(vol)  | "
-echo " | +@fg=6; $(cpu) +@fg=0; | +@fg=2; $(mem) +@fg=0; | +@fg=3; $(hdd) +@fg=0; | +@fg=1; $(network)  $(netspeed) +@fg=0; | +@fg=7; $(upgrades) +@fg=0; | $(weather) $(temp) | +@fg=4; $(vol) +@fg=0; | "
+echo " | +@fg=6; $(cpu)    $(CPUTEMP) +@fg=0; | +@fg=2; $(mem) +@fg=0; | +@fg=3; $(hdd)   $(hdd1) +@fg=0; | +@fg=1; $(network)  $(netspeed) +@fg=0; | +@fg=7; $(upgrades) +@fg=0; | $(weather) $(temp) | +@fg=4; $(vol) +@fg=0; | "
 	
 ## netspeed
            
