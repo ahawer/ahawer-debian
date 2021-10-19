@@ -1,5 +1,9 @@
 #!/bin/bash
 
-vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+
+vol="$(amixer -D pulse get Master | awk -F'[][]' 'END{ print $4": "$2 }')"
+# vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
 icon="🔊"
-printf " %s %s \\n" "$icon" "$vol%"
+printf " %s %s \\n" "$icon" "$vol"
+
+# echo " VOL  $vol "
