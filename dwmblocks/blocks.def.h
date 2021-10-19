@@ -10,6 +10,8 @@ static const Block blocks[] = {
 
 	{"",   "~/ahawer-debian/dwmblocks/scripts/disk", 	360,		0},
 
+	{"",   "~/ahawer-debian/dwmblocks/scripts/net_on", 	5,		0},
+	
 	{"",   "~/ahawer-debian/dwmblocks/scripts/network", 	2,		0},
 
 	{"",   "~/ahawer-debian/dwmblocks/scripts/updates", 	1800,		0},
