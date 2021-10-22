@@ -13,7 +13,7 @@ hdd1() {
 ## RAM
 mem() {
   mem=`free | awk '/Mem/ {printf "%d Mb / %d Mb\n", $3 / 1024.0, $2 / 1024.0 }'`
-  echo "RAM: $mem"
+  echo " $mem"
 }
 ## CPU
 cpu() {
@@ -23,7 +23,7 @@ cpu() {
   read cpu a b c idle rest < /proc/stat
   total=$((a+b+c+idle))
   cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-  echo " CPU: $cpu%"
+  echo " $cpu%"
 }
 
 ## CPU Temp
@@ -42,7 +42,7 @@ CPUTEMP() {
 upgrades() {
 #	upgrades="$(apt list --upgradable | wc -l)"    # "$(aptitude search '~U' | wc -l)"
 	upgrades="$(cat ~/.config/upgrades.txt)"
-	echo " UPG: $upgrades "
+	echo " $upgrades "
 }
 ## NET SPEED
 #rtx() {
@@ -116,7 +116,7 @@ network(){
 	fi
     ip link show $eth0 | grep 'state UP' >/dev/null && int=$eth0 || int=$wifi
     echo -n "$int"
-    ping -c1 -s1 8.8.8.8 >/dev/null 2>&1 && echo "Net ON" || echo "Net OFF"
+    ping -c1 -s1 8.8.8.8 >/dev/null 2>&1 && echo "ON" || echo "OFF"
 }
 ## VOLUME
 ##vol() {
@@ -125,7 +125,7 @@ network(){
 #}
 vol() {
 	vol="$(amixer -D pulse get Master | awk -F'[][]' 'END{ print $4": "$2 }')"
-	echo " VOL  $vol "
+	echo " $vol "
 }
 
 
@@ -151,7 +151,7 @@ SLEEP_SEC=2
 # echo output too long to display correctly.
 while :; do
 #	echo "   |  $(cpu)  |  $(mem)  |  $(hdd)  |  $(network)   $(netspeed)  |  $(weather) $(temp)  |  $(vol)  | "
-echo " | +@fg=6; $(cpu)    $(CPUTEMP) +@fg=0; | +@fg=2; $(mem) +@fg=0; | +@fg=3; $(hdd)   $(hdd1) +@fg=0; | +@fg=1; $(network)  $(netspeed) +@fg=0; | +@fg=7; $(upgrades) +@fg=0; | $(weather) $(temp) | +@fg=4; $(vol) +@fg=0; | "
+echo " | +@fg=6; +@fn=1; +@fn=0; $(cpu)    $(CPUTEMP) +@fg=0; | +@fg=2; +@fn=1; +@fn=0; $(mem) +@fg=0; | +@fg=3; +@fn=1; +@fn=0; $(hdd)   $(hdd1) +@fg=0; | +@fg=1; +@fn=1; +@fn=0; $(network)  $(netspeed) +@fg=0; | +@fg=7; +@fn=1; +@fn=0; $(upgrades) +@fg=0; | +@fn=1;  +@fn=0; $(weather) $(temp) | +@fg=4; +@fn=1; +@fn=0; $(vol) +@fg=0; | "
 	
 ## netspeed
            
