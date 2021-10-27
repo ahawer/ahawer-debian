@@ -6,7 +6,7 @@ Kernel="$(uname -sr)"
 Uptime="$(uptime -p | sed 's/up //')"
 Packages="$(dpkg -l | grep -c ^i)"
 Shell="$(basename "$SHELL")"
-#CPU="$(lscpu | grep Modelnavn: | sed "s/([^)]*)/()/g" | sed 's/[)(]//g')" 
+#CPU="$(lscpu | grep Modelnavn)" 
 #GPU="$(glxinfo -B | grep Device: | sed "s/([^)]*)/()/g" | sed 's/[)(]//g')"
 RAM="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
 IP="$(hostname -I | awk '{print $1}')"
@@ -15,6 +15,7 @@ echo '          _,met$$$$$gg.        '
 echo '       ,g$$$$$$$$$$$$$$$P.     '            
 echo '     ,g$$P""       """Y$$.".   '            Kernel: $Kernel			 
 echo '    ,$$P"              `$$$."  '            Uptime: $Uptime
+echo '   ,$$P                 `$$b:  '          #  CPU: $CPU
 echo '   ,$$P       ,ggs.     `$$b:  '            RAM: $RAM
 echo '  `d$$"     ,$P""   .    $$$   '            Packages: $Packages
 echo '   $$P      d$"     ,    $$P   '            Shell: $Shell
