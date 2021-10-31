@@ -2,9 +2,9 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 
-	{"| ",   "~/ahawer-debian/dwmblocks/scripts/cpu", 	2,		0},	
+	{"| ",   "~/ahawer-debian/dwmblocks/scripts/cpu",  	3,		0}, 
        
-	{"",  "~/ahawer-debian/dwmblocks/scripts/cputemp",	3,		0},
+	{"",  "~/ahawer-debian/dwmblocks/scripts/cputemp",	5,		0},
 	
 	{"",  "~/ahawer-debian/dwmblocks/scripts/memory",	10,		0},
 
@@ -12,17 +12,17 @@ static const Block blocks[] = {
 
 	{"",   "~/ahawer-debian/dwmblocks/scripts/net_on", 	5,		0},
 	
-	{"",   "~/ahawer-debian/dwmblocks/scripts/network", 	2,		0},
+	{"",   "~/ahawer-debian/dwmblocks/scripts/network", 	3,		0},
 
-	{"",   "~/ahawer-debian/dwmblocks/scripts/updates", 	1800,		0},
+	{"",   "~/ahawer-debian/dwmblocks/scripts/updates", 	5,		0},
 	
-	{"",   "~/ahawer-debian/dwmblocks/scripts/weather", 	900,		0},
+	{"",   "~/ahawer-debian/dwmblocks/scripts/weather", 	600,		0},
 	
-/*	{"",   "~/ahawer-debian/dwmblocks/scripts/weather_temp", 	900,		0},*/
+/*	{"",   "~/ahawer-debian/dwmblocks/scripts/weather_temp", 	600,		0},*/
 	
 	{"",   "~/ahawer-debian/dwmblocks/scripts/volume", 	2,		9},
 
-	{"", "date +'%A %d. %B,  %R  |'",			5,		0},
+	{"", "date +'  %R    %a. %d. %b. %Y  |'",			5,		0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
