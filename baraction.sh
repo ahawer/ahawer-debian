@@ -1,6 +1,11 @@
 #!/bin/bash
 # baraction.sh for spectrwm status bar
 
+## DATO TID
+dato() {
+   dato="$(date +'%R    %A, %d. %b. %Y')"
+   echo " $dato"
+}
 ## DISK
 hdd() {
   hdd="$(df -h | awk ' NR==4  { print  $3,   $5 } ')"
@@ -156,7 +161,7 @@ SLEEP_SEC=2
 # echo output too long to display correctly.
 while :; do
 #	echo "   |  $(cpu)  |  $(mem)  |  $(hdd)  |  $(network)   $(netspeed)  |  $(weather) $(temp)  |  $(vol)  | "
-echo "  +@fg=6; +@fn=1; +@fn=0; $(cpu)    $(CPUTEMP) +@fg=0; | +@fg=2; +@fn=1; +@fn=0; $(mem) +@fg=0; | +@fg=3; +@fn=1; +@fn=0; $(hdd)   $(hdd1) +@fg=0; | +@fg=1; +@fn=1; +@fn=0; $(network)  $(netspeed) +@fg=0; | +@fg=7; +@fn=1; +@fn=0; $(upgrades) +@fg=0; | +@fn=1; +@fn=0; $(weather) $(temp) | +@fg=4; +@fn=1; +@fn=0; $(vol) +@fg=0; | +@fn=1; +@fn=0;"
+echo " | +@fg=6; +@fn=1; +@fn=0; $(cpu)    $(CPUTEMP) +@fg=0;| +@fg=4; +@fn=1; +@fn=0; $(mem) +@fg=0; | +@fg=1; +@fn=1; +@fn=0; $(hdd)   $(hdd1) +@fg=0; | +@fg=3; +@fn=1; +@fn=0; $(network)  $(netspeed) +@fg=0; | +@fg=7; +@fn=1; +@fn=0; $(upgrades) +@fg=0; | +@fg=2; +@fn=1; +@fn=0; $(weather) $(temp) +@fg=0; | +@fg=5; +@fn=1; +@fn=0; $(vol) +@fg=0; | +@fn=1; +@fn=0; $(dato) |"
 	
 ## netspeed
            
