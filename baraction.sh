@@ -12,7 +12,7 @@ hdd() {
   echo "/   $hdd"
 }
 hdd1() {
-  hdd1="$(df -h | awk ' NR==8  { print  $3,   $5 } ')"
+  hdd1="$(df -h | awk ' NR==7  { print  $3,   $5 } ')"
   echo "~   $hdd1"
 }
 ## RAM
