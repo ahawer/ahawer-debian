@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:pixelsize=15:antialias=true:autohint=true";
+static char *font = "monospace:pixelsize=15:Bold:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/bash";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -99,17 +99,17 @@ float alpha = 0.9;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
+/*	"black",
 	"red3",
 	"green3",
 	"yellow3",
 	"blue2",
 	"magenta3",
 	"cyan3",
-	"gray90",
+	"gray90", */
 
 	/* 8 bright colors */
-	"gray50",
+/*	"gray50",
 	"red",
 	"green",
 	"yellow",
@@ -118,12 +118,55 @@ static const char *colorname[] = {
 	"cyan",
 	"white",
 
-	[255] = 0,
-
+	[255] = 0, */
+	/* m */
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
+/*	"#cccccc",
 	"#555555",
-	"black",
+	"black", */
+
+	/* 8 normal colors */
+"#161821", /* black   */
+"#e27878", /* red     */
+"#b4be82", /* green   */
+"#e2a478", /* yellow  */
+"#84a0c6", /* blue    */
+"#a093c7", /* magenta */
+"#89b8c2", /* cyan    */
+"#c6c8d1", /* white   */
+
+/* 8 bright colors */
+"#6b7089", /* black   */
+"#e98989", /* red     */
+"#c0ca8e", /* green   */
+"#e9b189", /* yellow  */
+"#91acd1", /* blue    */
+"#ada0d3", /* magenta */
+"#95c4ce", /* cyan    */
+"#d2d4de", /* white   */
+
+/* Gruvbox_dark */
+
+/* Normal colors */
+/*"#161821",*/  /* black */
+/*"#cc241d",*/  /* red */
+/*"#98971a",*/  /* green */
+/*"#d79921",*/  /* yellow */
+/*"#458588",*/  /* blue */
+/*"#b16286",*/  /* magenta */
+/*"#689d6a",*/  /* cyan */
+/*"#928374",*/  /* dark gray */
+/*"#c6c8d1",*/  /* white */
+
+/* Bright Colors */
+/*"#6b7089",*/ /* Black */
+/*"#fb4934",*/  /* light red */
+/*"#b8bb26",*/  /* light green */
+/*"#fabd2d",*/  /* light yellow */
+/*"#83a598",*/  /* light blue */
+/*"#d3869b",*/  /* light magenta*/               
+/*"#a89984",*/  /* light gray */
+/*"#d2d4de",*/  /* white */
 };
 
 
@@ -132,9 +175,9 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 7;
-unsigned int defaultbg = 258;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultbg = 0;   /* 258;*/
+static unsigned int defaultcs = 7; /* 256;*/
+static unsigned int defaultrcs = 0;  /* 257;*/
 
 /*
  * Default shape of cursor
@@ -474,5 +517,5 @@ static uint selmasks[] = {
  */
 static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
-	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
-	"`abcdefghijklmnopqrstuvwxyz{|}~";
+	"@ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ[\\]^_"
+	"`abcdefghijklmnopqrstuvwxyzæøå{|}~";
