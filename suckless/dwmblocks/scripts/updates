@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#updates="$(aptitude search '~U' | wc -l)"
+
+updates="$(cat ~/.config/upgrades.txt)"
+icon="  "
+printf " %s %s \\n"  "$icon " "$updates"
