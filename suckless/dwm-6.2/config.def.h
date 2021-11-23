@@ -2,19 +2,19 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 1;        /* gaps between windows */
+static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
+static const int showsystray        = 0;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Luxi Sans:Bold:size=11", "Font Awesome:size=12"};
-static const char dmenufont[]       = "Luxi Sans:Bold:size=11";
+static const char *fonts[]          = { "Noto Sans:Bold:size=10:antialias=true", "Font Awesome:size=11:antialias=true"};
+static const char dmenufont[]       = "Noto Sans:Bold:size=10:antialias=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#75ccf5";            /*"#bbbbbb";*/
+static const char col_gray3[]       = "#bbbbbb";            /*"#75ccf5";*/
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#353e42";
 static const char col_cyan[]        = "#005577";
@@ -23,7 +23,7 @@ static const char col_red1[]        = "#af0000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_red1,  col_red1  },
+	[SchemeSel]  = { col_gray4, col_red1,  col_red1},
 };
 
 /* tagging */
@@ -42,11 +42,13 @@ static const Rule rules[] = {
 	{ "Galculator", NULL,	  NULL,	      0,	    1,		 -1 },	
 	{ "Zoom",  NULL,          NULL,       0,            1,           -1 },
 	{ "zoom",  NULL,          NULL,       0,            1,           -1 },
+	{ "mpv",  NULL,           NULL,       0,            1,           -1 },
+	{ "Sxiv",  NULL,          NULL,       0,            1,           -1 },
 	{ "Wine",  NULL,          NULL,       0,            1,           -1 },
-/*	{ "Claws-mail",   NULL,        NULL,       1 << 2,       0,           -1 },
-	{ "Pcmanfm",  NULL,       NULL,       1 << 1,       0,           -1 },	
-	{ "st -e ranger",  NULL,       NULL,       1 << 1,       0,           -1 },	
-	{ "qutebrowser",  NULL,   NULL,       1 << 3,       0,           -1 },*/
+	{ "Claws-mail",   NULL,        NULL,       1 << 2,       0,           -1 },
+	{ "Pcmanfm",  NULL,       NULL,       0,       0,           -1 },	
+/*	{ "st -e ranger",  NULL,       NULL,       1 << 1,       0,           -1 },*/	
+	{ "qutebrowser",  NULL,   NULL,       0,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       1 << 0,       0,           -1 },*/
 /*	{ "kitty",       NULL,    NULL,       1 << 0,       0,           -1 },*/
 }; 
@@ -112,6 +114,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = lyd } },
 	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("tabbed -c surf -e") },
 /*	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   SHCMD("tabbed vimb -e") },*/
+	{ Mod1Mask,	        	XK_s,	   spawn,	   SHCMD("stalonetray") },
+	{ Mod1Mask,	        	XK_g,	   spawn,	   SHCMD("gimp") },
+	{ Mod1Mask,	        	XK_r,	   spawn,	   SHCMD("st -e ranger") },
 	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("systemctl suspend") },
 	{ MODKEY|ControlMask|Mod1Mask,	XK_r,	   spawn,	   SHCMD("systemctl reboot") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
