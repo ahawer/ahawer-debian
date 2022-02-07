@@ -6,6 +6,6 @@ wthr=$(sed 24q ~/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$
 icon=" "
 
 printf " %s %s %s \n" "$icon " "$wthr"  "$weather"
-🌤️
-
- 
+#🌤️
+#
+# 

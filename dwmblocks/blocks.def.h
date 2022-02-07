@@ -22,7 +22,7 @@ static const Block blocks[] = {
 	
 	{"",   "~/ahawer-debian/dwmblocks/scripts/volume", 	2,		9},
 
-	{"", "date +'  %R    %a. %d. %b. %Y  |'",			5,		0},
+	{"", "date +'  %R    %a. %d. %b. %Y  |'",			2,		0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

@@ -71,14 +71,14 @@ static const struct arg args[] = {
 	{ disk_free,	"^c#E06C75^ ~ %s  | ",  "/home/andreas/" }, */
 /*	{ netspeed_rx,	"^c#56B6C2^ > %sB/s ", "eno1" },
         { netspeed_tx,	"^c#56B6C2^ < %sB/s | ", "eno1" }, */
-        { run_command,  "^c#98c379^|%2s  ", "~/ahawer-debian/dwmblocks/scripts/cpu" }, 
-        { run_command,  "^c#98c379^%2s | ", "~/ahawer-debian/dwmblocks/scripts/cputemp" }, 
-        { run_command,  "^c#655eed^%2s | ", "~/ahawer-debian/dwmblocks/scripts/memory" }, 
-        { run_command,  "^c#E06C75^%2s | ", "~/ahawer-debian/dwmblocks/scripts/disk" }, 
-        { run_command,  "^c#56B6C2^%2s  ", "~/ahawer-debian/dwmblocks/scripts/net_on" }, 
-        { run_command,  "^c#56B6C2^%2s | ", "~/ahawer-debian/dwmblocks/scripts/network" }, 
-	{ run_command,  "^c#e5c07b^%2s | ", "~/ahawer-debian/dwmblocks/scripts/weather" },  /* "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" }, */
-	{ run_command,  "^c#33b03f^%2s | ", "~/ahawer-debian/dwmblocks/scripts/updates" },  /* "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" }, */
+        { run_command,  "^c#98c379^|%2s  ", "/home/andreas/ahawer-debian/dwmblocks/scripts/cpu" }, 
+        { run_command,  "^c#98c379^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/cputemp" }, 
+        { run_command,  "^c#655eed^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/memory" }, 
+        { run_command,  "^c#E06C75^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/disk" }, 
+        { run_command,  "^c#56B6C2^%2s  ", "/home/andreas/ahawer-debian/dwmblocks/scripts/net_on" }, 
+        { run_command,  "^c#56B6C2^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/network" }, 
+	{ run_command,  "^c#e5c07b^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/weather" },  /* "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" }, */
+	{ run_command,  "^c#33b03f^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/updates" },  /* "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" }, */
        /* { run_command,  "^c#ABB2BF^   %2s | ", "sed 24q /home/andreas/.config/weather.txt | grep temp_C | awk '{print $2}' | sed 's/,/ C/g'" }, */
 	{ run_command,	"^c#be83f3^   %2s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },	
 /*	{ datetime,	"^c#61afef^ %s",	"%a, %b %d,  %R | " },  */
