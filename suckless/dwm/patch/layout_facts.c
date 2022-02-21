@@ -21,3 +21,4 @@ getfacts(Monitor *m, int msize, int ssize, float *mf, float *sf, int *mr, int *s
 	*mr = msize - mtotal; // the remainder (rest) of pixels after an even master split
 	*sr = ssize - stotal; // the remainder (rest) of pixels after an even stack split
 }
+
