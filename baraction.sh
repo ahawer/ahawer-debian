@@ -170,4 +170,4 @@ echo " | +@fg=6; +@fn=1; +@fn=0; $(cpu)    $(CPUTEMP) +@fg=0;| +@fg=4; +@fn=1
 
     	    sleep $SLEEP_SEC
 done
-
+ 
