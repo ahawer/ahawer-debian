@@ -11,4 +11,4 @@
 	fi
     ip link show $eth0 | grep 'state UP' >/dev/null && int=$eth0 || int=$wifi
     echo -n "$int"
-    ping -c1 -s1 8.8.8.8 >/dev/null 2>&1 && echo "   ON" || echo "   OFF"
+    ping -c1 -s1 8.8.8.8 >/dev/null 2>&1 && echo "    ON" || echo "    OFF"

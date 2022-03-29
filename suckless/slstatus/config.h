@@ -80,7 +80,7 @@ static const struct arg args[] = {
 	{ run_command,  "^c#e5c07b^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/weather" },  /* "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" }, */
 	{ run_command,  "^c#33b03f^%2s | ", "/home/andreas/ahawer-debian/dwmblocks/scripts/updates" },  /* "sed 24q /home/andreas/.config/weather.txt | grep value | awk '{print $2" "$3" "$4" "$5}'" }, */
        /* { run_command,  "^c#ABB2BF^   %2s | ", "sed 24q /home/andreas/.config/weather.txt | grep temp_C | awk '{print $2}' | sed 's/,/ C/g'" }, */
-	{ run_command,	"^c#be83f3^   %2s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },	
+	{ run_command,	"^c#be83f3^     %2s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },	
 /*	{ datetime,	"^c#61afef^ %s",	"%a, %b %d,  %R | " },  */
-        { run_command,  "^c#61afef^ %s",	"date +'  %R    %a. %d. %b. %Y  |'" },
+        { run_command,  "^c#61afef^ %s",	"date +'    %R    %a. %d. %b. %Y  |'" },
 };		

@@ -3,5 +3,5 @@
 #updates="$(aptitude search '~U' | wc -l)"
 
 updates="$(cat ~/.config/upgrades.txt)"
-icon="  "
+icon="    "
 printf " %s %s \\n"  "$icon " "$updates"
